@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        #startTime {
+            background-color: purple;
+            margin-left: 33%;
+            padding: 15px 32px;
+            font-size: 20px;
+            color: white;
+        }
+
+        #wrapper {
+            position: absolute;
+            left: 30%;
+            top: 20%;
+            width: 500px;
+            height: 500px;
+            border: 1px solid purple;
+        }
+
+        #questionsDiv {
+            margin: 20px;
+        }
+
+        #currentTime {
+            float: right;
+        }
+
+        h1 {
+            text-align: center;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div id="wrapper">
+        <div id="currentTime"></div>
+        <div id="questionsDiv">
+            <h1>Coding Quiz Challenge</h1>
+            <p>Try to answer the following code-related questions within the time limit. Keep in mind that incorrect
+                answers
+                will penalize your score/time by ten seconds!</p>
+
+        </div>
+        <button id="startTime">Test Button</button>
+    </div>
+
+
+
+    <script>
+        // Pseudocode 
+        // Create a timer attached to a button with a starting value of 0
+        // Whnen timer is pressed start a reverse countdown
+        // Create a 0 for countdown 
+
+        // When countdown starts, start quiz
+        // Append the question: choices
+        // When user selects the right answer, textcontent "Correct!"
+        // When user selects the right answer, textcontent "Wrong!"
+
+        // Final score will keep track of how many the user got right 
+        // Left over time will be deducted from final score 
+
+        // Use this keyword: 
+        var questions = [
+            {
+                title: "Commonly used data types DO NOT include:",
+                choices: ["strings", "booleans", "alerts", "numbers"],
+                answer: "alerts"
+            },
+            {
+                title: "The condition in an if / else statement is enclosed within ____.",
+                choices: ["quotes", "curly brackets", "parentheses", "square brackets"],
+                answer: "parentheses"
+            },
+            // Fill in all question into this one object
+            ///etc.
+        ];
+
+        // Create button that the user can click to start quiz HTML with id
+        // Function for interval 
+        // Define time once pressed 
+        // in milliseconds 
+
+        // Remove function to remove button - remove element by id or class. 
+        // Create - append, will put question into HMTL 
+
+        // // Score starts at 0 
+        // var score = 0;
+        // // Holds user answer 
+        // var userAnswer;
+        // // Calculate final score 
+        // var finalScore;
+
+
+        // Div to append questions
+
+
+        // Start working code 
+        // Declared variables
+        var currentTime = document.querySelector("#currentTime");
+        var questionsDiv = document.querySelector("#questionsDiv");
+        var timer = document.querySelector("#startTime");
+        // Seconds left is 15 seconds per question:
+        var secondsLeft = 5;
+        // Holds interval time
+        var holdInterval = 0;
+        // var newVariable;
+        // Convert milliseconds into seconds example:
+        // var seconds = Math.floor((t % (1000 * 60)) / 1000); 
+
+        // If wrong, timer will deduct -15 seconds - 1 point
+        // Score is time left
+
+        timer.addEventListener("click", function () {
+            // startQuiz();
+            // Validating the "input" 
+            // We are checking zero because its originally set to zero
+            if (holdInterval === 0) {
+                holdInterval = setInterval(function () {
+                    secondsLeft--;
+                    currentTime.textContent = secondsLeft + " seconds left for quiz";
+
+                    if (secondsLeft <= 0) {
+                        clearInterval(holdInterval);
+                        // alert("Zero!");
+                    }
+                }, 1000);
+            }
+        });
+
+        // another variable to hold starting time
+        // After time runs out, we want to let it start again
+        // seconds left = starting time
+        // Variable to track what question we are on
+
+
+        // function startQuiz() {
+
+
+      //  };
+
+
+
+        // Try this!
+
+    //   for (var i = 0; i < drinkList.length; i++) {
+    //   var item = drinkList[i];
+    //   var newElement = document.createElement("div");
+    //   newElement.textContent = item;
+    //   drinkDiv.appendChild(newElement);
+    // }
+
+        // Loop through list of objects: 
+        // for (var i = 0; i < questions.length; i++) {
+        //     questionsDiv.append("<h2>" + questions[i].title + "<h2 />");
+        //     for (var j = 0; j < questions[i].choices.length; j++) {
+        //         questionsDiv.append("<button value='+ questions[i].choices[j]'>" + questions[i].choices[j] + "</button>");
+        //     }
+        //     
+        // };
+
+        // Event listener on button or select 
+        // Add answer as data attribute on question - then compare value of button or selct to see if correct answer
+        // Append each choices, needs an event lister for each 
+
+    </script>
+</body>
+
+</html>

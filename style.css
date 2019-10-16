@@ -1,0 +1,29 @@
+        #startTime {
+            background-color: purple;
+            margin-left: 33%;
+            padding: 15px 32px;
+            font-size: 20px;
+            color: white;
+        }
+
+        #wrapper {
+            position: absolute;
+            left: 30%;
+            top: 20%;
+            width: 500px;
+            height: 500px;
+            border: 1px solid purple;
+        }
+
+        #questionsDiv {
+            margin: 20px;
+        }
+
+        #currentTime {
+            float: right;
+        }
+
+        h1 {
+            text-align: center;
+        }
+  
