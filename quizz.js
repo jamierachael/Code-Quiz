@@ -24,7 +24,7 @@ var secondsLeft = 5;
 // Holds interval time
 var holdInterval = 0;
 
-
+// Triggers timer on button, shows user a display on the screen
 timer.addEventListener("click", function () {
 
     if (holdInterval === 0) {
@@ -39,3 +39,28 @@ timer.addEventListener("click", function () {
         }, 1000);
     }
 });
+
+// Renders questions and choices to page: 
+function render() {
+
+    questions.innerHTML = "";
+
+    for (var i = 0; i < questions.length; i++) {
+
+        var userQuestion = questions[i].title;
+        questionsDiv.textContent = userQuestion;
+
+        var li = document.createElement("li");
+        li.textContent = userQuestion;
+
+        li.setAttribute("data-index", i);
+
+        var userChoices = questions[i].choices;
+        choicesUl.textContent = userQuestion;
+        li.textContent = userChoices;
+
+        li.setAttribute("data-index", i);
+
+        questionsDiv.appendChild(li);
+    }
+}

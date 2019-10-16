@@ -52,8 +52,9 @@
 
 
 
+
+            <button id="startTime">Test Button</button>
         </div>
-        <button id="startTime">Test Button</button>
     </div>
 
 
@@ -169,21 +170,9 @@
         //     }
         //     alert("You got score  " + "/" + questions.length);
 
-
-        // }
-        // Works for question title only: 
-        // function render() {
-
-        //     questions.innerHTML = "";
-
-        //     for (var i = 0; i < questions.length; i++) {
-
-        //         var userQuestion = questions[i].title;
-        //         questionsDiv.textContent = userQuestion;
-        //     }
-        // }
-        // render();
-
+        // Works for both questions and choices
+        // Style list options 
+        // Make array options into individual list items
         function render() {
 
             questions.innerHTML = "";
@@ -204,7 +193,7 @@
 
                 li.setAttribute("data-index", i);
 
-                userQuestion.appendChild(li);
+                questionsDiv.appendChild(li);
             }
         }
         render();
