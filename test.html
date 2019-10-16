@@ -173,6 +173,8 @@
         // Works for both questions and choices
         // Style list options 
         // Make array options into individual list items
+        // Add and test event listener 
+        // Add and test if statement for score keeping
         function render() {
 
             questions.innerHTML = "";
@@ -185,13 +187,13 @@
                 var li = document.createElement("li");
                 li.textContent = userQuestion;
 
-                li.setAttribute("data-index", i);
+                // li.setAttribute("data-index", i);
 
                 var userChoices = questions[i].choices;
                 choicesUl.textContent = userQuestion;
                 li.textContent = userChoices;
 
-                li.setAttribute("data-index", i);
+                // li.setAttribute("data-index", i);
 
                 questionsDiv.appendChild(li);
             }

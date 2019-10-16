@@ -23,6 +23,7 @@ var timer = document.querySelector("#startTime");
 var secondsLeft = 5;
 // Holds interval time
 var holdInterval = 0;
+var choicesUl = document.querySelector("#choicesUl");
 
 // Triggers timer on button, shows user a display on the screen
 timer.addEventListener("click", function () {
@@ -64,3 +65,4 @@ function render() {
         questionsDiv.appendChild(li);
     }
 }
+// render();
