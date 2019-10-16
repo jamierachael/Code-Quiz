@@ -1,16 +1,3 @@
-// Pseudocode 
-// Create a timer attached to a button with a starting value of 0
-// Whnen timer is pressed start a reverse countdown
-// Create a 0 for countdown 
-
-// When countdown starts, start quiz
-// Append the question: choices
-// When user selects the right answer, textcontent "Correct!"
-// When user selects the right answer, textcontent "Wrong!"
-
-// Final score will keep track of how many the user got right 
-// Left over time will be deducted from final score 
-
 // Use this keyword: 
 var questions = [
     {
@@ -27,7 +14,8 @@ var questions = [
     ///etc.
 ];
 
-
+// Start working code 
+// Declared variables
 var currentTime = document.querySelector("#currentTime");
 var questionsDiv = document.querySelector("#questionsDiv");
 var timer = document.querySelector("#startTime");
@@ -51,4 +39,3 @@ timer.addEventListener("click", function () {
         }, 1000);
     }
 });
-

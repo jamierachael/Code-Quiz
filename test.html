@@ -48,6 +48,9 @@
             <p>Try to answer the following code-related questions within the time limit. Keep in mind that incorrect
                 answers
                 will penalize your score/time by ten seconds!</p>
+            <ul id="choicesUl"></ul>
+
+
 
         </div>
         <button id="startTime">Test Button</button>
@@ -85,6 +88,8 @@
             ///etc.
         ];
 
+        var score = 0;
+
         // Create button that the user can click to start quiz HTML with id
         // Function for interval 
         // Define time once pressed 
@@ -107,15 +112,16 @@
         // Start working code 
         // Declared variables
         var currentTime = document.querySelector("#currentTime");
-        var questionsDiv = document.querySelector("#questionsDiv");
         var timer = document.querySelector("#startTime");
+        var questionsDiv = document.querySelector("#questionsDiv");
+        var choicesUl = document.querySelector("#choicesUl");
+
+
         // Seconds left is 15 seconds per question:
         var secondsLeft = 5;
         // Holds interval time
         var holdInterval = 0;
         // var newVariable;
-        // Convert milliseconds into seconds example:
-        // var seconds = Math.floor((t % (1000 * 60)) / 1000); 
 
         // If wrong, timer will deduct -15 seconds - 1 point
         // Score is time left
@@ -135,7 +141,73 @@
                     }
                 }, 1000);
             }
+
         });
+
+
+        // Working for loop, wont append: 
+        // for (var i = 0; i < questions.length; i++) {
+        //     // working
+        //     var userQuestion = questions[i].title;
+        //     var ulElement = document.createElement("ul");
+        //     var liElement = document.createElement("li");
+        //     // change to an append
+        //     alert(userQuestion);
+        //     // working
+        //     var userChoices = questions[i].choices;
+        //     // change to an append
+        //     alert(userChoices);
+        //     var userResponse = questions[i].answer;
+        //     // Not sure if correct works
+        //     if (userChoices == userResponse) {
+        //         score++;
+        //         alert("Correct!");
+
+        //     } else {
+        //         alert("Wrong!");
+        //         alert("Your answer was  " + userResponse);
+        //     }
+        //     alert("You got score  " + "/" + questions.length);
+
+
+        // }
+
+        // function render() {
+        //     // Clear todoList element and update todoCountSpan
+        //     questions.innerHTML = "";
+        //     // Render a new li for each todo
+        //     for (var i = 0; i < questions.length; i++) {
+
+        //         var userQuestion = questions[i].title;
+        //         questionsDiv.textContent = userQuestion;
+        //     }
+        // }
+        // render();
+
+        function render() {
+
+            questions.innerHTML = "";
+
+            for (var i = 0; i < questions.length; i++) {
+
+                var userQuestion = questions[i].title;
+                questionsDiv.textContent = userQuestion;
+
+                var li = document.createElement("li");
+                li.textContent = userQuestion;
+
+                li.setAttribute("data-index", i);
+
+                var userChoices = questions[i].choices;
+                choicesUl.textContent = userQuestion;
+                li.textContent = userChoices;
+
+                li.setAttribute("data-index", i);
+
+                userQuestion.appendChild(li);
+            }
+        }
+        render();
 
         // another variable to hold starting time
         // After time runs out, we want to let it start again
@@ -143,30 +215,8 @@
         // Variable to track what question we are on
 
 
-        // function startQuiz() {
 
 
-      //  };
-
-
-
-        // Try this!
-
-    //   for (var i = 0; i < drinkList.length; i++) {
-    //   var item = drinkList[i];
-    //   var newElement = document.createElement("div");
-    //   newElement.textContent = item;
-    //   drinkDiv.appendChild(newElement);
-    // }
-
-        // Loop through list of objects: 
-        // for (var i = 0; i < questions.length; i++) {
-        //     questionsDiv.append("<h2>" + questions[i].title + "<h2 />");
-        //     for (var j = 0; j < questions[i].choices.length; j++) {
-        //         questionsDiv.append("<button value='+ questions[i].choices[j]'>" + questions[i].choices[j] + "</button>");
-        //     }
-        //     
-        // };
 
         // Event listener on button or select 
         // Add answer as data attribute on question - then compare value of button or selct to see if correct answer
