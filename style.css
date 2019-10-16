@@ -26,4 +26,12 @@
         h1 {
             text-align: center;
         }
+
+        li {
+            background-color: purple;
+            margin-top: 10px;
+            padding: 5px 15px;
+            font-size: 18px;
+            color: white;
+        }
   

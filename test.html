@@ -36,6 +36,18 @@
         h1 {
             text-align: center;
         }
+
+        li {
+            background-color: purple;
+            margin-top: 10px;
+            padding: 5px 15px;
+            font-size: 18px;
+            color: white;
+        }
+
+        #createDiv {
+            margin-top: 20px;
+        }
     </style>
 
 </head>
@@ -128,7 +140,6 @@
         // Score is time left
 
         timer.addEventListener("click", function () {
-            // startQuiz();
             // Validating the "input" 
             // We are checking zero because its originally set to zero
             if (holdInterval === 0) {
@@ -142,16 +153,75 @@
                     }
                 }, 1000);
             }
-
+            render();
         });
+
+
+
+        function render() {
+
+            questions.innerHTML = "";
+
+            for (var i = 0; i < questions.length; i++) {
+                // Variable created to hold title part of question
+                var userQuestion = questions[i].title;
+                // writes title part of question into the div
+                questionsDiv.textContent = userQuestion;
+                // Variable to create list element 
+                var liCreate = document.createElement("li");
+                // writes users question into list 
+                // liCreate.textContent = userQuestion;
+
+                // liCreate.setAttribute("data-index", i);
+                // Variable created to hold choices part of question
+                var userChoices = questions[i].choices;
+                // writes choices part into Ul area
+                // choicesUl.textContent = userQuestion;
+                // writes choices part into li area
+                liCreate.textContent = userChoices;
+                // Variable created to hold user response part of question
+                var userResponse = questions[i].answer;
+                questionsDiv.appendChild(liCreate);
+            }
+
+            liCreate.addEventListener("click", function (event) {
+                var element = event.target;
+
+                if (element.matches("li")) {
+                    console.log(liCreate);
+                    var createDiv = document.createElement("div");
+                    createDiv.setAttribute("id", "createDiv");
+
+                    // Not sure if correct works
+
+                    if (userChoices == userResponse) {
+                        score++;
+                        alert("Correct!");
+                        createDiv.textContent = userChoices;
+
+                    } else {
+                        // alert("Wrong!");
+                        // alert("Your answer was  " + userResponse);
+                        createDiv.textContent = "Wrong! Your answer was:  " + userResponse + ". The correct answer was:  " + userChoices;
+                    }
+                    alert("You got score  " + "/" + questions.length);
+                    console.log(score++);
+                }
+                questionsDiv.appendChild(createDiv);
+            });
+
+        }
+
+
+
+
 
 
         // Working for loop, wont append: 
         // for (var i = 0; i < questions.length; i++) {
         //     // working
         //     var userQuestion = questions[i].title;
-        //     var ulElement = document.createElement("ul");
-        //     var liElement = document.createElement("li");
+
         //     // change to an append
         //     alert(userQuestion);
         //     // working
@@ -160,7 +230,8 @@
         //     alert(userChoices);
         //     var userResponse = questions[i].answer;
         //     // Not sure if correct works
-        //     if (userChoices == userResponse) {
+        //    
+        //  if (userChoices == userResponse) {
         //         score++;
         //         alert("Correct!");
 
@@ -175,30 +246,7 @@
         // Make array options into individual list items
         // Add and test event listener 
         // Add and test if statement for score keeping
-        function render() {
 
-            questions.innerHTML = "";
-
-            for (var i = 0; i < questions.length; i++) {
-
-                var userQuestion = questions[i].title;
-                questionsDiv.textContent = userQuestion;
-
-                var li = document.createElement("li");
-                li.textContent = userQuestion;
-
-                // li.setAttribute("data-index", i);
-
-                var userChoices = questions[i].choices;
-                choicesUl.textContent = userQuestion;
-                li.textContent = userChoices;
-
-                // li.setAttribute("data-index", i);
-
-                questionsDiv.appendChild(li);
-            }
-        }
-        render();
 
         // another variable to hold starting time
         // After time runs out, we want to let it start again
