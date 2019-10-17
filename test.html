@@ -135,6 +135,7 @@
         // Holds interval time
         var holdInterval = 0;
         // var newVariable;
+        var liCreate = document.createElement("li");
 
         // If wrong, timer will deduct -15 seconds - 1 point
         // Score is time left
@@ -165,30 +166,42 @@
             for (var i = 0; i < questions.length; i++) {
                 // Variable created to hold title part of question
                 var userQuestion = questions[i].title;
+                var userChoices = questions[i].choices;
+                var userResponse = questions[i].answer;
                 // writes title part of question into the div
                 questionsDiv.textContent = userQuestion;
                 // Variable to create list element 
-                var liCreate = document.createElement("li");
-                // writes users question into list 
-                // liCreate.textContent = userQuestion;
 
-                // liCreate.setAttribute("data-index", i);
-                // Variable created to hold choices part of question
-                var userChoices = questions[i].choices;
-                // writes choices part into Ul area
-                // choicesUl.textContent = userQuestion;
-                // writes choices part into li area
-                liCreate.textContent = userChoices;
-                // Variable created to hold user response part of question
-                var userResponse = questions[i].answer;
-                questionsDiv.appendChild(liCreate);
             }
+            questions.forEach(function (item) {
+                this.questions.choices;
+                console.log(item.choices);
+
+                liCreate.textContent = userChoices;
+                questionsDiv.appendChild(liCreate);
+
+            });
+
+            // var liCreate = document.createElement("li");
+            //     // writes users question into list 
+            //     // liCreate.textContent = userQuestion;
+
+            //     // liCreate.setAttribute("data-index", i);
+            //     // Variable created to hold choices part of question
+            //     var userChoices = questions[i].choices;
+            //     // writes choices part into Ul area
+            //     // choicesUl.textContent = userQuestion;
+            //     // writes choices part into li area
+            //     liCreate.textContent = userChoices;
+            //     // Variable created to hold user response part of question
+            //     var userResponse = questions[i].answer;
+            //     questionsDiv.appendChild(liCreate);
 
             liCreate.addEventListener("click", function (event) {
                 var element = event.target;
-
+                // var userResponse = questions[i].answer;
                 if (element.matches("li")) {
-                    console.log(liCreate);
+                    // console.log(liCreate);
                     var createDiv = document.createElement("div");
                     createDiv.setAttribute("id", "createDiv");
 
@@ -212,52 +225,9 @@
 
         }
 
-        // Test for each: 
-
-        // var drinkList = [
-        //       "Coffee: $5",
-        //       "Espresso: $7",
-        //       "Cappuccino: $6",
-        //       "Latte: $4",
-        //       "Tea: $3",
-        //       "Ice Coffee: $6",
-        //       "Ice Espresso: $8",
-        //       "Ice Latte: $6",
-        //       "Ice Tea: $4"
-        //     ];
-
-        //     var drinkDiv = document.querySelector("#drink-options");
-
-        // Try using for quiz:
-        // // New method, For Each:
-        // questions.forEach(function (item) {
-        //     var newElement.textContent = item;
-        //     quesrionsDiv.appendChild(newElement);
-        // })
 
 
-// for each example: 
 
-// var drinkList = [
-//       "Coffee: $5",
-//       "Espresso: $7",
-//       "Cappuccino: $6",
-//       "Latte: $4",
-//       "Tea: $3",
-//       "Ice Coffee: $6",
-//       "Ice Espresso: $8",
-//       "Ice Latte: $6",
-//       "Ice Tea: $4"
-//     ];
-
-//     var drinkDiv = document.querySelector("#drink-options");
-
-    // Try using for quiz:
-    // // New method, For Each:
-    // drinkList.forEach(function (item) {
-    // var newElement.textContent = item; 
-    // drinkDiv.appendChild(newElement);
-    // })
 
 
 
