@@ -34,4 +34,7 @@
             font-size: 18px;
             color: white;
         }
-  
+
+        #createDiv {
+            margin-top: 20px;
+        }
