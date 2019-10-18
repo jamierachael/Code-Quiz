@@ -120,6 +120,9 @@ function compare(event) {
 
 function allDone() {
     // to create the last page:
+    questionsDiv.innerHTML = "";
+    currentTime.innerHTML = "";
+
     // Heading:
     var createH1 = document.createElement("h1");
     createH1.setAttribute("id", "createH1");
@@ -134,6 +137,15 @@ function allDone() {
     // How to fill in value ?
 
     questionsDiv.appendChild(createP);
+
+    if (secondsLeft >= 0) {
+        var timeRemaining = secondsLeft;
+        var createP2 = document.createElement("p");
+        clearInterval(holdInterval);
+        // alert("Zero!");
+        createP2.textContent = "You had " + timeRemaining + " seconds left!";
+        questionsDiv.appendChild(createP2);
+    }
 
     // Label
     var createLabel = document.createElement("label");
@@ -150,15 +162,14 @@ function allDone() {
     questionsDiv.appendChild(createInput);
 
     // submit
-    var createSubmit = document.createElement("buttom");
+    var createSubmit = document.createElement("button");
     createSubmit.setAttribute("type", "submit");
-    createSubmit.setAttribute("id", "submit");
+    createSubmit.setAttribute("id", "Submit");
     // Not working 
-    // createSubmit.textContent = "Submit";
+    createSubmit.textContent = "Submit";
 
     // Not working 
-    // questionsDiv.appendChild(createSubmit);
-
-
+    questionsDiv.appendChild(createSubmit);
 
 }
+

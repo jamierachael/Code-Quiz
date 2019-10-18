@@ -295,11 +295,11 @@
             questionsDiv.appendChild(createP);
 
             if (secondsLeft >= 0) {
-                var time = secondsLeft;
+                var timeRemaining = secondsLeft;
                 var createP2 = document.createElement("p");
                 clearInterval(holdInterval);
                 // alert("Zero!");
-                createP2.textContent = "You had " + time + " seconds left!";
+                createP2.textContent = "You had " + timeRemaining + " seconds left!";
                 questionsDiv.appendChild(createP2);
             }
 
@@ -326,9 +326,6 @@
 
             // Not working 
             questionsDiv.appendChild(createSubmit);
-
-
-
 
         }
 
