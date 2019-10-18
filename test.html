@@ -106,7 +106,7 @@
 
 
 
-            <button id="startTime">Test Button</button>
+            <button id="startTime">Start Quiz</button>
 
             <!-- 
                 to render 
@@ -149,6 +149,23 @@
             },
             // Fill in all question into this one object
             ///etc.
+
+            // {
+            //     title: "Arrays in Javascript can be used to store ____.",
+            //     choices: ["numbers and strings", "other arrays", "booleans", "all of the above"],
+            //     answer: "all of the above"
+            // },
+            // {
+            //     title: "String values must be enclosed within ____ when being assigned to variables.",
+            //     choices: ["commas", "curly brackets", "quotes", "parenthesis"],
+            //     answer: "quotes"
+            // },
+            // {
+            //     title: "A very useful tool for used during development and debugging for printing content to the debugger is:",
+            //     choices: ["Javascript", "terminal / bash", "for loops", "console log"],
+            //     answer: "console log"
+            // },
+
         ];
 
         var score = 0;
@@ -159,6 +176,8 @@
         var currentTime = document.querySelector("#currentTime");
         var timer = document.querySelector("#startTime");
         var questionsDiv = document.querySelector("#questionsDiv");
+        var wrapper = document.querySelector("#wrapper");
+
 
 
 
@@ -257,6 +276,9 @@
 
         function allDone() {
             // to create the last page:
+            questionsDiv.innerHTML = "";
+            currentTime.innerHTML = "";
+
             // Heading:
             var createH1 = document.createElement("h1");
             createH1.setAttribute("id", "createH1");
@@ -271,6 +293,15 @@
             // How to fill in value ?
 
             questionsDiv.appendChild(createP);
+
+            if (secondsLeft >= 0) {
+                var time = secondsLeft;
+                var createP2 = document.createElement("p");
+                clearInterval(holdInterval);
+                // alert("Zero!");
+                createP2.textContent = "You had " + time + " seconds left!";
+                questionsDiv.appendChild(createP2);
+            }
 
             // Label
             var createLabel = document.createElement("label");
@@ -296,38 +327,13 @@
             // Not working 
             questionsDiv.appendChild(createSubmit);
 
+
+
+
         }
 
 
-        // Working for loop, wont append: 
-        // for (var i = 0; i < questions.length; i++) {
-        //     // working
-        //     var userQuestion = questions[i].title;
 
-        //     // change to an append
-        //     alert(userQuestion);
-        //     // working
-        //     var userChoices = questions[i].choices;
-        //     // change to an append
-        //     alert(userChoices);
-        //     var userResponse = questions[i].answer;
-        //     // Not sure if correct works
-        //    
-        //  if (userChoices == userResponse) {
-        //         score++;
-        //         alert("Correct!");
-
-        //     } else {
-        //         alert("Wrong!");
-        //         alert("Your answer was  " + userResponse);
-        //     }
-        //     alert("You got score  " + "/" + questions.length);
-
-        // Works for both questions and choices
-        // Style list options 
-        // Make array options into individual list items
-        // Add and test event listener 
-        // Add and test if statement for score keeping
 
 
         // another variable to hold starting time
