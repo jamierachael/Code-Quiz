@@ -109,11 +109,56 @@ function compare(event) {
     //  break; ?
     if (questionIndex >= questions.length) {
         // Proper spot to call this: 
-        // allDone();
+        allDone();
         alert("end of quiz!");
     } else {
         render(questionIndex);
     }
     questionsDiv.appendChild(createDiv);
+
+}
+
+function allDone() {
+    // to create the last page:
+    // Heading:
+    var createH1 = document.createElement("h1");
+    createH1.setAttribute("id", "createH1");
+    createH1.textContent = "All Done!"
+    questionsDiv.textContent = createH1;
+    questionsDiv.appendChild(createH1);
+
+    // Paragraph
+    var createP = document.createElement("p");
+    createP.setAttribute("id", "createP");
+    createP.textContent = "Your final score is: " + score;
+    // How to fill in value ?
+
+    questionsDiv.appendChild(createP);
+
+    // Label
+    var createLabel = document.createElement("label");
+    createLabel.setAttribute("id", "createLabel");
+    createLabel.textContent = "Enter your initials"
+
+    questionsDiv.appendChild(createLabel);
+
+    // input
+    var createInput = document.createElement("input");
+    createInput.setAttribute("type", "text");
+    createInput.textContent = "";
+
+    questionsDiv.appendChild(createInput);
+
+    // submit
+    var createSubmit = document.createElement("buttom");
+    createSubmit.setAttribute("type", "submit");
+    createSubmit.setAttribute("id", "submit");
+    // Not working 
+    // createSubmit.textContent = "Submit";
+
+    // Not working 
+    // questionsDiv.appendChild(createSubmit);
+
+
 
 }
