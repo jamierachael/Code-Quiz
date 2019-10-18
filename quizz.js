@@ -86,15 +86,15 @@ function compare(event) {
             score++;
             alert("Correct!");
             // no longer working
-            createDiv.textContent = element.textContent;
+            createDiv.textContent = "Correct! The answer is:  " + questions[questionIndex].answer;
         } else {
             alert("Wrong!");
             // Can use the same above for element.textContent;
             // not working
-            createDiv.textContent = "Wrong! Your answer was:  " + element.textContent + ". The correct answer was:  " + questions[questionIndex].answer;
+            createDiv.textContent = "Wrong! The correct answer is:  " + questions[questionIndex].answer;
         }
-        alert("You got score  " + "/" + questions.length);
-        console.log(score++);
+        alert("You got  " + score + "/" + questions.length);
+        console.log(score);
         // Should this be changed?
 
     }

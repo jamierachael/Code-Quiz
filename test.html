@@ -141,30 +141,13 @@
         var score = 0;
         var questionIndex = 0;
 
-        // Create button that the user can click to start quiz HTML with id
-        // Function for interval 
-        // Define time once pressed 
-        // in milliseconds 
-
-        // Remove function to remove button - remove element by id or class. 
-        // Create - append, will put question into HMTL 
-
-        // // Score starts at 0 
-        // var score = 0;
-        // // Holds user answer 
-        // var userAnswer;
-        // // Calculate final score 
-        // var finalScore;
-
-
-        // Div to append questions
-
-
         // Start working code 
         // Declared variables
         var currentTime = document.querySelector("#currentTime");
         var timer = document.querySelector("#startTime");
         var questionsDiv = document.querySelector("#questionsDiv");
+
+
 
         // Seconds left is 15 seconds per question:
         var secondsLeft = 5;
@@ -173,9 +156,7 @@
         // var newVariable;
         var ulCreate = document.createElement("ul");
 
-        // If wrong, timer will deduct -15 seconds - 1 point
-        // Score is time left
-
+        // Triggers timer on button, shows user a display on the screen
         timer.addEventListener("click", function () {
             // Validating the "input" 
             // We are checking zero because its originally set to zero
@@ -193,8 +174,7 @@
             render(questionIndex);
         });
 
-
-        // Needs to separate out choices: 
+        // Renders questions and choices to page: 
         function render(questionIndex) {
 
             questionsDiv.innerHTML = "";
@@ -218,33 +198,45 @@
 
         function compare(event) {
             var element = event.target;
-
+            // var userResponse = questions[i].answer;
             if (element.matches("li")) {
-
+                // console.log(liCreate);
                 var createDiv = document.createElement("div");
                 createDiv.setAttribute("id", "createDiv");
+
+                // correct answer works, does not text content to div
 
                 if (element.textContent == questions[questionIndex].answer) {
                     score++;
                     alert("Correct!");
+                    // no longer working
                     createDiv.textContent = "Correct! The answer is:  " + questions[questionIndex].answer;
                 } else {
                     alert("Wrong!");
-                    createDiv.textContent = "Wrong! Your answer was:  " + element.textContent + ". The correct answer was:  " + questions[questionIndex].answer;
+                    // Can use the same above for element.textContent;
+                    // not working
+                    createDiv.textContent = "Wrong! The correct answer is:  " + questions[questionIndex].answer;
                 }
                 alert("You got  " + score + "/" + questions.length);
                 console.log(score);
+                // Should this be changed?
 
             }
-
+            // Question Index is not added 1 when on second question
             questionIndex++;
+            // render(questionIndex);
+            console.log(questionIndex);
+            // questionsDiv.appendChild(createDiv);
 
+            // Needs to detect end of array: 
+            // lastIndexOf(questionIndex);
+            //  break; ?
             if (questionIndex >= questions.length) {
                 // Proper spot to call this: 
                 allDone();
                 alert("end of quiz!");
             } else {
-                // render(questionIndex);
+                render(questionIndex);
             }
             questionsDiv.appendChild(createDiv);
 
@@ -290,8 +282,6 @@
 
             // Not working 
             // questionsDiv.appendChild(createSubmit);
-
-
 
         }
 
