@@ -31,6 +31,7 @@
 
         #currentTime {
             float: right;
+            margin-right: 10px;
         }
 
         h1 {
@@ -182,9 +183,11 @@
 
 
         // Seconds left is 15 seconds per question:
-        var secondsLeft = 5;
+        var secondsLeft = 6;
         // Holds interval time
         var holdInterval = 0;
+        // Holds penalty time
+        // var penalty = 5;
         // var newVariable;
         var ulCreate = document.createElement("ul");
 
@@ -195,11 +198,15 @@
             if (holdInterval === 0) {
                 holdInterval = setInterval(function () {
                     secondsLeft--;
-                    currentTime.textContent = secondsLeft + " seconds left for quiz";
+                    currentTime.textContent = "Time: " + secondsLeft;
 
                     if (secondsLeft <= 0) {
                         clearInterval(holdInterval);
+                        // Works, enble after local storage is set
+                        // allDone();
                         // alert("Zero!");
+                        // Works, enble after local storage is set
+                        currentTime.textContent = "Time's up!";
                     }
                 }, 1000);
             }
@@ -241,17 +248,15 @@
                 if (element.textContent == questions[questionIndex].answer) {
                     score++;
                     // alert("Correct!");
-                    // no longer working
                     createDiv.textContent = "Correct! The answer is:  " + questions[questionIndex].answer;
                 } else {
                     // alert("Wrong!");
-                    // Can use the same above for element.textContent;
-                    // not working
+                    // Will deduct -5 seconds off secondsLeft for wrong answers
+                    // secondsLeft = secondsLeft - penalty;
                     createDiv.textContent = "Wrong! The correct answer is:  " + questions[questionIndex].answer;
                 }
                 alert("You got  " + score + "/" + questions.length);
                 console.log(score);
-                // Should this be changed?
 
             }
             // Question Index is not added 1 when on second question
