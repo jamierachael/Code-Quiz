@@ -49,7 +49,6 @@
         #createDiv {
             margin-top: 20px;
             border-top: 1px solid lightgray;
-
         }
 
         #goBack {
@@ -219,38 +218,26 @@
 
         function compare(event) {
             var element = event.target;
-            // var userResponse = questions[i].answer;
+
             if (element.matches("li")) {
-                // console.log(liCreate);
-                // Create Div not working 
+
                 var createDiv = document.createElement("div");
                 createDiv.setAttribute("id", "createDiv");
-
-                // correct answer works, does not text content to div
 
                 if (element.textContent == questions[questionIndex].answer) {
                     score++;
                     alert("Correct!");
-                    // no longer working
-                    createDiv.textContent = element.textContent;
+                    createDiv.textContent = "Correct! The answer is:  " + questions[questionIndex].answer;
                 } else {
                     alert("Wrong!");
-                    // Can use the same above for element.textContent;
                     createDiv.textContent = "Wrong! Your answer was:  " + element.textContent + ". The correct answer was:  " + questions[questionIndex].answer;
                 }
-                alert("You got score  " + "/" + questions.length);
+                alert("You got  " + score + "/" + questions.length);
                 console.log(score);
-                // Should this be changed?
 
             }
-            // Question Index is not added 1 when on second question
+
             questionIndex++;
-            console.log(questionIndex);
-            console.log(createDiv);
-            questionsDiv.appendChild(createDiv);
-            // Needs to detect end of array: 
-            // lastIndexOf(questionIndex);
-            //  break; ?
 
             if (questionIndex >= questions.length) {
                 // Proper spot to call this: 
@@ -259,6 +246,7 @@
             } else {
                 render(questionIndex);
             }
+            questionsDiv.appendChild(createDiv);
 
         }
 
@@ -296,12 +284,11 @@
     // submit 
     // var createSubmit = document.createElement("submit");
     // createSubmit.setAttribute("type", "text");
-    // How to submit it to "High Scores" page?
-    // createSubmit.textContent = ? 
+    // createSubmit.textContent = ?
 
     // questionsDiv.appendChild(createSubmit);
 
-// }
+//}
 
 
         // Working for loop, wont append: 

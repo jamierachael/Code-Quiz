@@ -15,13 +15,14 @@ var questions = [
 ];
 
 var score = 0;
+var questionIndex = 0;
 
 // Start working code 
 // Declared variables
 var currentTime = document.querySelector("#currentTime");
 var timer = document.querySelector("#startTime");
 var questionsDiv = document.querySelector("#questionsDiv");
-var choicesUl = document.querySelector("#choicesUl");
+
 
 
 // Seconds left is 15 seconds per question:
@@ -29,6 +30,7 @@ var secondsLeft = 5;
 // Holds interval time
 var holdInterval = 0;
 // var newVariable;
+var ulCreate = document.createElement("ul");
 
 // Triggers timer on button, shows user a display on the screen
 timer.addEventListener("click", function () {
@@ -45,60 +47,73 @@ timer.addEventListener("click", function () {
             }
         }, 1000);
     }
-    render();
+    render(questionIndex);
 });
 
 // Renders questions and choices to page: 
-function render() {
+function render(questionIndex) {
 
-    questions.innerHTML = "";
+    questionsDiv.innerHTML = "";
+    ulCreate.innerHTML = "";
 
     for (var i = 0; i < questions.length; i++) {
-        // Variable created to hold title part of question
-        var userQuestion = questions[i].title;
-        // writes title part of question into the div
+
+        var userQuestion = questions[questionIndex].title;
+        var userChoices = questions[questionIndex].choices;
         questionsDiv.textContent = userQuestion;
-        // Variable to create list element 
-        var liCreate = document.createElement("li");
-        // writes users question into list 
-        // liCreate.textContent = userQuestion;
-
-        // liCreate.setAttribute("data-index", i);
-        // Variable created to hold choices part of question
-        var userChoices = questions[i].choices;
-        // writes choices part into Ul area
-        // choicesUl.textContent = userQuestion;
-        // writes choices part into li area
-        liCreate.textContent = userChoices;
-        // Variable created to hold user response part of question
-        var userResponse = questions[i].answer;
-        questionsDiv.appendChild(liCreate);
     }
+    // New for each for question choices
+    userChoices.forEach(function (newItem) {
+        var listItem = document.createElement("li");
+        listItem.textContent = newItem;
+        questionsDiv.appendChild(ulCreate);
+        ulCreate.appendChild(listItem);
+        listItem.addEventListener("click", (compare));
+    })
+}
 
-    liCreate.addEventListener("click", function (event) {
-        var element = event.target;
+function compare(event) {
+    var element = event.target;
+    // var userResponse = questions[i].answer;
+    if (element.matches("li")) {
+        // console.log(liCreate);
+        var createDiv = document.createElement("div");
+        createDiv.setAttribute("id", "createDiv");
 
-        if (element.matches("li")) {
-            console.log(liCreate);
-            var createDiv = document.createElement("div");
-            createDiv.setAttribute("id", "createDiv");
+        // correct answer works, does not text content to div
 
-            // Not sure if correct works
-
-            if (userChoices == userResponse) {
-                score++;
-                alert("Correct!");
-                createDiv.textContent = userChoices;
-
-            } else {
-                // alert("Wrong!");
-                // alert("Your answer was  " + userResponse);
-                createDiv.textContent = "Wrong! Your answer was:  " + userResponse + ". The correct answer was:  " + userChoices;
-            }
-            alert("You got score  " + "/" + questions.length);
-            console.log(score++);
+        if (element.textContent == questions[questionIndex].answer) {
+            score++;
+            alert("Correct!");
+            // no longer working
+            createDiv.textContent = element.textContent;
+        } else {
+            alert("Wrong!");
+            // Can use the same above for element.textContent;
+            // not working
+            createDiv.textContent = "Wrong! Your answer was:  " + element.textContent + ". The correct answer was:  " + questions[questionIndex].answer;
         }
-        questionsDiv.appendChild(createDiv);
-    });
+        alert("You got score  " + "/" + questions.length);
+        console.log(score++);
+        // Should this be changed?
+
+    }
+    // Question Index is not added 1 when on second question
+    questionIndex++;
+    // render(questionIndex);
+    console.log(questionIndex);
+    // questionsDiv.appendChild(createDiv);
+
+    // Needs to detect end of array: 
+    // lastIndexOf(questionIndex);
+    //  break; ?
+    if (questionIndex >= questions.length) {
+        // Proper spot to call this: 
+        // allDone();
+        alert("end of quiz!");
+    } else {
+        render(questionIndex);
+    }
+    questionsDiv.appendChild(createDiv);
 
 }
