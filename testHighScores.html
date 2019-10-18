@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        #wrapper {
+            position: absolute;
+            left: 30%;
+            top: 20%;
+            width: 500px;
+            height: 500px;
+            border: 1px solid purple;
+        }
+
+        #startTime {
+            background-color: purple;
+            margin-left: 33%;
+            padding: 15px 32px;
+            font-size: 20px;
+            color: white;
+        }
+
+        #Submit {
+            background-color: purple;
+            margin-left: 33%;
+            padding: 15px 32px;
+            font-size: 20px;
+            color: white;
+        }
+
+        button {
+            border-radius: 8px;
+        }
+
+        input {
+            margin-bottom: 20px;
+        }
+
+        #goBack {
+            background-color: purple;
+            position: absolute;
+            padding: 10px;
+            font-size: 20px;
+            color: white;
+            top: 30%;
+            left: 20%;
+            width: auto;
+            text-align: center;
+            text-decoration: none;
+        }
+
+
+
+        #clear {
+            background-color: purple;
+            position: absolute;
+            padding: 10px;
+            font-size: 20px;
+            color: white;
+            top: 30%;
+            right: 25%;
+            text-align: center;
+        }
+
+        textarea {
+            width: 90%;
+            margin: 20px;
+        }
+
+        #questionsDiv {
+            margin: 20px;
+        }
+
+        #currentTime {
+            float: right;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        li {
+            background-color: purple;
+            margin-top: 10px;
+            padding: 5px 15px;
+            font-size: 18px;
+            color: white;
+        }
+
+        #createDiv {
+            margin-top: 20px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div id="wrapper">
+        <div id="currentTime"></div>
+        <div id="questionsDiv">
+            <h1>Highscores</h1>
+            <textarea placeholder="Your Score" id="highScore" readonly></textarea>
+
+
+            <!-- Will need to add event listener-->
+            <a href="test.html"> <button id="goBack">Go Back</button></a>
+            <button id="clear">Clear Highscore</button>
+
+
+
+
+        </div>
+    </div>
+
+
+
+    <script>
+
+        var questions = [
+            {
+                title: "Commonly used data types DO NOT include:",
+                choices: ["strings", "booleans", "alerts", "numbers"],
+                answer: "alerts"
+            },
+            {
+                title: "The condition in an if / else statement is enclosed within ____.",
+                choices: ["quotes", "curly brackets", "parentheses", "square brackets"],
+                answer: "parentheses"
+            },
+            // Fill in all question into this one object
+            ///etc.
+        ];
+
+        var score = 0;
+
+
+        // Will need to render HTML to have h1, p, input and submit
+
+
+
+        // Needs to separate out choices: 
+        function render() {
+
+            questions.innerHTML = "";
+            // liCreate.innerHTML = ulCreate;
+
+            for (var i = 0; i < questions.length; i++) {
+                // Variable created to hold title part of question
+
+                // writes title part of question into the div
+                questionsDiv.textContent = userQuestion;
+                // Variable to create list element 
+
+                liCreate.textContent = userChoices;
+                questionsDiv.appendChild(liCreate);
+            }
+
+            // // Does not render questions, gets error for choices
+            // questions.forEach(function (item) {
+            //     // var userQuestion = questions[0].title;
+            //     this.questions.title;
+            //     console.log(item.title);
+            //     questionsDiv.appendChild(ulCreate);
+            //     // var userChoices = questions[0].choices;
+            //     this.questions.choices;
+            //     ulCreate.appendChild(liCreate);
+            //     console.log(item.choices);
+
+            // });
+
+        }
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

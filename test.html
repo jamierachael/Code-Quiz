@@ -43,16 +43,47 @@
             padding: 5px 15px;
             font-size: 18px;
             color: white;
+            width: 80%;
         }
 
         #createDiv {
             margin-top: 20px;
+            border-top: 1px solid lightgray;
+
+        }
+
+        #goBack {
+            background-color: purple;
+            position: absolute;
+            padding: 10px;
+            font-size: 20px;
+            color: white;
+            top: 30%;
+            left: 20%;
+            width: auto;
+            text-align: center;
+        }
+
+        #clear {
+            background-color: purple;
+            position: absolute;
+            padding: 10px;
+            font-size: 20px;
+            color: white;
+            top: 30%;
+            right: 25%;
+            text-align: center;
+        }
+
+        button {
+            border-radius: 8px;
         }
     </style>
 
 </head>
 
 <body>
+    <a href="testHighScores.html">View Highscores</a>
     <div id="wrapper">
         <div id="currentTime"></div>
         <div id="questionsDiv">
@@ -60,12 +91,19 @@
             <p>Try to answer the following code-related questions within the time limit. Keep in mind that incorrect
                 answers
                 will penalize your score/time by ten seconds!</p>
-            <ul id="choicesUl"></ul>
 
-
-
+            <!-- <ul id="choicesUl"></ul> -->
 
             <button id="startTime">Test Button</button>
+
+            <!-- 
+                to render 
+                // Will need to render HTML to have h1, p, input and submit
+                <h1>All Done!</h1>
+                <p>Your final score is: # </p>
+                <label>Enter Initials:</label>
+                <input type="text"></input>
+                <button type="Submit" id="Submit">Submit</button> -->
         </div>
     </div>
 
@@ -102,6 +140,7 @@
         ];
 
         var score = 0;
+        var questionIndex = 0;
 
         // Create button that the user can click to start quiz HTML with id
         // Function for interval 
@@ -127,15 +166,13 @@
         var currentTime = document.querySelector("#currentTime");
         var timer = document.querySelector("#startTime");
         var questionsDiv = document.querySelector("#questionsDiv");
-        var choicesUl = document.querySelector("#choicesUl");
-
 
         // Seconds left is 15 seconds per question:
         var secondsLeft = 5;
         // Holds interval time
         var holdInterval = 0;
         // var newVariable;
-        var liCreate = document.createElement("li");
+        var ulCreate = document.createElement("ul");
 
         // If wrong, timer will deduct -15 seconds - 1 point
         // Score is time left
@@ -154,82 +191,117 @@
                     }
                 }, 1000);
             }
-            render();
+            render(questionIndex);
         });
 
 
+        // Needs to separate out choices: 
+        function render(questionIndex) {
 
-        function render() {
-
-            questions.innerHTML = "";
+            questionsDiv.innerHTML = "";
+            ulCreate.innerHTML = "";
 
             for (var i = 0; i < questions.length; i++) {
-                // Variable created to hold title part of question
-                var userQuestion = questions[i].title;
-                var userChoices = questions[i].choices;
-                var userResponse = questions[i].answer;
-                // writes title part of question into the div
+
+                var userQuestion = questions[questionIndex].title;
+                var userChoices = questions[questionIndex].choices;
                 questionsDiv.textContent = userQuestion;
-                // Variable to create list element 
+            }
+            // New for each for question choices
+            userChoices.forEach(function (newItem) {
+                var listItem = document.createElement("li");
+                listItem.textContent = newItem;
+                questionsDiv.appendChild(ulCreate);
+                ulCreate.appendChild(listItem);
+                listItem.addEventListener("click", (compare));
+            })
+        }
+
+        function compare(event) {
+            var element = event.target;
+            // var userResponse = questions[i].answer;
+            if (element.matches("li")) {
+                // console.log(liCreate);
+                // Create Div not working 
+                var createDiv = document.createElement("div");
+                createDiv.setAttribute("id", "createDiv");
+
+                // correct answer works, does not text content to div
+
+                if (element.textContent == questions[questionIndex].answer) {
+                    score++;
+                    alert("Correct!");
+                    // no longer working
+                    createDiv.textContent = element.textContent;
+                } else {
+                    alert("Wrong!");
+                    // Can use the same above for element.textContent;
+                    createDiv.textContent = "Wrong! Your answer was:  " + element.textContent + ". The correct answer was:  " + questions[questionIndex].answer;
+                }
+                alert("You got score  " + "/" + questions.length);
+                console.log(score);
+                // Should this be changed?
 
             }
-            questions.forEach(function (item) {
-                this.questions.choices;
-                console.log(item.choices);
+            // Question Index is not added 1 when on second question
+            questionIndex++;
+            console.log(questionIndex);
+            console.log(createDiv);
+            questionsDiv.appendChild(createDiv);
+            // Needs to detect end of array: 
+            // lastIndexOf(questionIndex);
+            //  break; ?
 
-                liCreate.textContent = userChoices;
-                questionsDiv.appendChild(liCreate);
-
-            });
-
-            // var liCreate = document.createElement("li");
-            //     // writes users question into list 
-            //     // liCreate.textContent = userQuestion;
-
-            //     // liCreate.setAttribute("data-index", i);
-            //     // Variable created to hold choices part of question
-            //     var userChoices = questions[i].choices;
-            //     // writes choices part into Ul area
-            //     // choicesUl.textContent = userQuestion;
-            //     // writes choices part into li area
-            //     liCreate.textContent = userChoices;
-            //     // Variable created to hold user response part of question
-            //     var userResponse = questions[i].answer;
-            //     questionsDiv.appendChild(liCreate);
-
-            liCreate.addEventListener("click", function (event) {
-                var element = event.target;
-                // var userResponse = questions[i].answer;
-                if (element.matches("li")) {
-                    // console.log(liCreate);
-                    var createDiv = document.createElement("div");
-                    createDiv.setAttribute("id", "createDiv");
-
-                    // Not sure if correct works
-
-                    if (userChoices == userResponse) {
-                        score++;
-                        alert("Correct!");
-                        createDiv.textContent = userChoices;
-
-                    } else {
-                        // alert("Wrong!");
-                        // alert("Your answer was  " + userResponse);
-                        createDiv.textContent = "Wrong! Your answer was:  " + userResponse + ". The correct answer was:  " + userChoices;
-                    }
-                    alert("You got score  " + "/" + questions.length);
-                    console.log(score++);
-                }
-                questionsDiv.appendChild(createDiv);
-            });
+            if (questionIndex >= questions.length) {
+                // Proper spot to call this: 
+                // allDone();
+                alert("end of quiz!");
+            } else {
+                render(questionIndex);
+            }
 
         }
 
+// function allDone() {
+    // to create the last page: 
+    // Heading: 
+    // var createH1 = document.createElement("h1");
+    // createH1.setAttribute("id", "createH1");
+    // createH1.textContent = "All Done!"
 
+    // questionsDiv.appendChild(createH1);
 
+    // Paragraph
+    // var createP = document.createElement("p");
+    // createP.setAttribute("id", "createP");
+    // createP.textContent = "Your final score is:" + score;
+    // How to fill in value?
 
+    // questionsDiv.appendChild(createP);
 
+    // Label
+    // var createLabel = document.createElement("label");
+    // createLabel.setAttribute("id", "createLabel");
+    // createLabel.textContent = "Enter your initials"
 
+    // questionsDiv.appendChild(createLabel);
+
+    // input 
+    // var createInput = document.createElement("input");
+    // createInput.setAttribute("type", "text");
+    // createInput.textContent = "";
+
+    // questionsDiv.appendChild(createInput);
+
+    // submit 
+    // var createSubmit = document.createElement("submit");
+    // createSubmit.setAttribute("type", "text");
+    // How to submit it to "High Scores" page?
+    // createSubmit.textContent = ? 
+
+    // questionsDiv.appendChild(createSubmit);
+
+// }
 
 
         // Working for loop, wont append: 

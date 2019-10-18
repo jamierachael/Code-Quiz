@@ -1,11 +1,4 @@
-        #startTime {
-            background-color: purple;
-            margin-left: 33%;
-            padding: 15px 32px;
-            font-size: 20px;
-            color: white;
-        }
-
+        
         #wrapper {
             position: absolute;
             left: 30%;
@@ -14,13 +7,63 @@
             height: 500px;
             border: 1px solid purple;
         }
-
+        #startTime {
+            background-color: purple;
+            margin-left: 33%;
+            padding: 15px 32px;
+            font-size: 20px;
+            color: white;
+        }
         #questionsDiv {
             margin: 20px;
         }
 
         #currentTime {
             float: right;
+        }
+
+        #goBack {
+            background-color: purple;
+            position: absolute;
+            padding: 10px;
+            font-size: 20px;
+            color: white;
+            top: 30%;
+            left: 20%;
+            width: auto;
+            text-align: center;
+        }
+
+        #clear {
+            background-color: purple;
+            position: absolute;
+            padding: 10px;
+            font-size: 20px;
+            color: white;
+            top: 30%;
+            right: 25%;
+            text-align: center;
+        }
+
+        button {
+            border-radius: 8px;
+        }
+
+        textarea {
+            width: 90%;
+            margin: 20px;
+        }
+
+        #Submit {
+            background-color: purple;
+            margin-left: 33%;
+            padding: 15px 32px;
+            font-size: 20px;
+            color: white;
+        }
+
+        input {
+            margin-bottom: 20px;
         }
 
         h1 {
