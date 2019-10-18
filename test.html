@@ -77,6 +77,19 @@
         button {
             border-radius: 8px;
         }
+
+        #Submit {
+            background-color: purple;
+            margin-left: 33%;
+            padding: 15px 32px;
+            font-size: 20px;
+            color: white;
+        }
+
+        input {
+            margin-bottom: 20px;
+            width: 50%;
+        }
     </style>
 
 </head>
@@ -208,11 +221,11 @@
 
                 if (element.textContent == questions[questionIndex].answer) {
                     score++;
-                    alert("Correct!");
+                    // alert("Correct!");
                     // no longer working
                     createDiv.textContent = "Correct! The answer is:  " + questions[questionIndex].answer;
                 } else {
-                    alert("Wrong!");
+                    // alert("Wrong!");
                     // Can use the same above for element.textContent;
                     // not working
                     createDiv.textContent = "Wrong! The correct answer is:  " + questions[questionIndex].answer;
@@ -274,14 +287,14 @@
             questionsDiv.appendChild(createInput);
 
             // submit
-            var createSubmit = document.createElement("buttom");
+            var createSubmit = document.createElement("button");
             createSubmit.setAttribute("type", "submit");
-            createSubmit.setAttribute("id", "submit");
+            createSubmit.setAttribute("id", "Submit");
             // Not working 
-            // createSubmit.textContent = "Submit";
+            createSubmit.textContent = "Submit";
 
             // Not working 
-            // questionsDiv.appendChild(createSubmit);
+            questionsDiv.appendChild(createSubmit);
 
         }
 
