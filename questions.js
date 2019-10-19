@@ -57,12 +57,11 @@ var secondsLeft = 76;
 var holdInterval = 0;
 // Holds penalty time
 var penalty = 10;
-// var newVariable;
+// Creates new element
 var ulCreate = document.createElement("ul");
 
 // Triggers timer on button, shows user a display on the screen
 timer.addEventListener("click", function () {
-    // Validating the "input" 
     // We are checking zero because its originally set to zero
     if (holdInterval === 0) {
         holdInterval = setInterval(function () {
@@ -71,10 +70,7 @@ timer.addEventListener("click", function () {
 
             if (secondsLeft <= 0) {
                 clearInterval(holdInterval);
-                // Works, enble after local storage is set
                 allDone();
-                // alert("Zero!");
-                // Works, enble after local storage is set
                 currentTime.textContent = "Time's up!";
             }
         }, 1000);
@@ -117,19 +113,14 @@ function compare(event) {
             // alert("Correct!");
             createDiv.textContent = "Correct! The answer is:  " + questions[questionIndex].answer;
         } else {
-            // alert("Wrong!");
             // Will deduct -5 seconds off secondsLeft for wrong answers
             secondsLeft = secondsLeft - penalty;
             createDiv.textContent = "Wrong! The correct answer is:  " + questions[questionIndex].answer;
         }
-        // alert("You got  " + score + "/" + questions.length);
-        // console.log(score);
 
     }
     // Question Index is not added 1 when on second question
     questionIndex++;
-    // render(questionIndex);
-    // console.log(questionIndex);
 
     if (questionIndex >= questions.length) {
         // Proper spot to call this: 
@@ -143,7 +134,6 @@ function compare(event) {
 }
 
 function allDone() {
-    // to create the last page:
     questionsDiv.innerHTML = "";
     currentTime.innerHTML = "";
 
@@ -151,24 +141,22 @@ function allDone() {
     var createH1 = document.createElement("h1");
     createH1.setAttribute("id", "createH1");
     createH1.textContent = "All Done!"
-    questionsDiv.textContent = createH1;
+
     questionsDiv.appendChild(createH1);
 
     // Paragraph
     var createP = document.createElement("p");
     createP.setAttribute("id", "createP");
-    createP.textContent = "Your final score is: " + score;
-    // How to fill in value ?
 
     questionsDiv.appendChild(createP);
 
+    // Calculates time remaining and replaces it with score
     if (secondsLeft >= 0) {
         var timeRemaining = secondsLeft;
         var createP2 = document.createElement("p");
         clearInterval(holdInterval);
-        // alert("Zero!");
         createP.textContent = "Your final score is: " + timeRemaining;
-        // createP2.textContent = "You had " + timeRemaining + " seconds left!";
+
         questionsDiv.appendChild(createP2);
     }
 
@@ -182,6 +170,7 @@ function allDone() {
     // input
     var createInput = document.createElement("input");
     createInput.setAttribute("type", "text");
+    createInput.setAttribute("id", "initials");
     createInput.textContent = "";
 
     questionsDiv.appendChild(createInput);
@@ -194,10 +183,32 @@ function allDone() {
 
     questionsDiv.appendChild(createSubmit);
 
+    // Test
+    createSubmit.addEventListener("click", function () {
+        var initials = createInput.value;
+
+        if (initials === null) {
+
+            console.log("No value entered!");
+
+        } else {
+            var finalScore = {
+                initials: initials,
+                score: timeRemaining
+            }
+            console.log(finalScore);
+            var allScores = localStorage.getItem("allScores");
+            if (allScores === null) {
+                allScores = [];
+            } else {
+                allScores = JSON.parse(allScores);
+            }
+            allScores.push(finalScore);
+            var newScore = JSON.stringify(allScores);
+            localStorage.setItem("allScores", newScore);
+
+            window.location.replace("./HighScores.html");
+        }
+    });
+
 }
-
-
-
-        // Event listener on button or select 
-        // Add answer as data attribute on question - then compare value of button or selct to see if correct answer
-        // Append each choices, needs an event lister for each 

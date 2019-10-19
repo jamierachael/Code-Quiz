@@ -24,24 +24,27 @@
 
         #goBack {
             background-color: purple;
-            position: absolute;
+            position: relative;
             padding: 10px;
             font-size: 20px;
             color: white;
             top: 30%;
-            left: 20%;
+            left: 55%;
             width: auto;
             text-align: center;
+            text-decoration: none;
         }
+
+
 
         #clear {
             background-color: purple;
-            position: absolute;
+            position: relative;
             padding: 10px;
             font-size: 20px;
             color: white;
             top: 30%;
-            right: 25%;
+            right: 5%;
             text-align: center;
         }
 
@@ -74,6 +77,7 @@
             background-color: purple;
             margin-top: 10px;
             padding: 5px 15px;
+            width: 80%;
             font-size: 18px;
             color: white;
         }

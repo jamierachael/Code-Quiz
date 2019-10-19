@@ -15,9 +15,7 @@
         <div id="currentTime"></div>
         <div id="questionsDiv">
             <h1>Highscores</h1>
-            <textarea placeholder="Your Score" id="highScore" readonly></textarea>
-
-            <!-- <ul id="choicesUl"></ul> -->
+            <ul id="highScore"></ul>
 
             <a href="index.html"> <button id="goBack">Go Back</button></a>
             <button id="clear" value="reset">Clear Highscore</button>
@@ -28,8 +26,29 @@
 
     <script>
 
-        // var clear = document.querySelector("#clear");
-        // console.log(clear);
+        var highScore = document.querySelector("#highScore");
+        var clear = document.querySelector("#clear");
+
+        clear.addEventListener("click", function () {
+            localStorage.clear();
+            location.reload();
+        });
+
+        var allScores = localStorage.getItem("allScores");
+        allScores = JSON.parse(allScores);
+
+        if (allScores !== null) {
+
+            for (var i = 0; i < allScores.length; i++) {
+
+                var createLi = document.createElement("li");
+                createLi.textContent = allScores[i].initials + " " + allScores[i].score;
+                highScore.appendChild(createLi);
+
+            }
+        }
+
+
 
     </script>
 
