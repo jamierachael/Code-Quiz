@@ -109,7 +109,7 @@
 
             <!-- Will need to add event listener-->
             <a href="test.html"> <button id="goBack">Go Back</button></a>
-            <button id="clear">Clear Highscore</button>
+            <button id="clear" value="reset">Clear Highscore</button>
 
 
 
@@ -121,62 +121,8 @@
 
     <script>
 
-        var questions = [
-            {
-                title: "Commonly used data types DO NOT include:",
-                choices: ["strings", "booleans", "alerts", "numbers"],
-                answer: "alerts"
-            },
-            {
-                title: "The condition in an if / else statement is enclosed within ____.",
-                choices: ["quotes", "curly brackets", "parentheses", "square brackets"],
-                answer: "parentheses"
-            },
-            // Fill in all question into this one object
-            ///etc.
-        ];
-
-        var score = 0;
-
-
-        // Will need to render HTML to have h1, p, input and submit
-
-
-
-        // Needs to separate out choices: 
-        function render() {
-
-            questions.innerHTML = "";
-            // liCreate.innerHTML = ulCreate;
-
-            for (var i = 0; i < questions.length; i++) {
-                // Variable created to hold title part of question
-
-                // writes title part of question into the div
-                questionsDiv.textContent = userQuestion;
-                // Variable to create list element 
-
-                liCreate.textContent = userChoices;
-                questionsDiv.appendChild(liCreate);
-            }
-
-            // // Does not render questions, gets error for choices
-            // questions.forEach(function (item) {
-            //     // var userQuestion = questions[0].title;
-            //     this.questions.title;
-            //     console.log(item.title);
-            //     questionsDiv.appendChild(ulCreate);
-            //     // var userChoices = questions[0].choices;
-            //     this.questions.choices;
-            //     ulCreate.appendChild(liCreate);
-            //     console.log(item.choices);
-
-            // });
-
-        }
-
-
-
+        var clear = document.querySelector("#clear");
+        console.log(clear);
 
 
 

@@ -209,7 +209,7 @@
                         currentTime.textContent = "Time's up!";
                     }
                 }, 1000);
-            }
+            } console.log(secondsLeft);
             render(questionIndex);
         });
 
@@ -283,6 +283,7 @@
             // to create the last page:
             questionsDiv.innerHTML = "";
             currentTime.innerHTML = "";
+            // questionsDiv.style.display = "hidden";
 
             // Heading:
             var createH1 = document.createElement("h1");
@@ -326,24 +327,28 @@
             var createSubmit = document.createElement("button");
             createSubmit.setAttribute("type", "submit");
             createSubmit.setAttribute("id", "Submit");
-            // Not working 
             createSubmit.textContent = "Submit";
 
-            // Not working 
             questionsDiv.appendChild(createSubmit);
 
+            // Test
+            createSubmit.addEventListener("click", function () {
+                var initials = localStorage.setItem("initials", initials);
+                var noInitials = localStorage.getItem("noInitials");
+                // if the item did not exist in local storage
+                if (noInitials === null) {
+                    // createInput = createInput.textContent = "No value entered!";
+                    console.log("No value entered!");
+                    // For testing, right now only "if" works
+                    // window.location.replace("./testHighScores.html");
+                } else {
+                    var objectJSON = JSON.stringify(initials);
+                    localStorage.getItem("initials", initials);
+                    window.location.replace("./testHighScores.html");
+                }
+            });
+
         }
-
-
-
-
-
-        // another variable to hold starting time
-        // After time runs out, we want to let it start again
-        // seconds left = starting time
-        // Variable to track what question we are on
-
-
 
 
 
