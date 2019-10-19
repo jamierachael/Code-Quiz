@@ -43,7 +43,7 @@
 
         #goBack {
             background-color: purple;
-            position: absolute;
+            position: relative;
             padding: 10px;
             font-size: 20px;
             color: white;
@@ -58,7 +58,7 @@
 
         #clear {
             background-color: purple;
-            position: absolute;
+            position: relative;
             padding: 10px;
             font-size: 20px;
             color: white;
@@ -104,7 +104,7 @@
         <div id="currentTime"></div>
         <div id="questionsDiv">
             <h1>Highscores</h1>
-            <textarea placeholder="Your Score" id="highScore" readonly></textarea>
+            <ul id="highScore"></ul>
 
 
             <!-- Will need to add event listener-->
@@ -118,10 +118,26 @@
 
     <script>
 
+        var highScore = document.querySelector("#highScore");
+
+        // localStorage.clear();
+
         var clear = document.querySelector("#clear");
         console.log(clear);
 
-// function highScores() {
+        // function highScores() {
+        // Pull values out of local storage 
+        var allScores = localStorage.getItem("allScores");
+        allScores = JSON.parse(allScores);
+        for (var i = 0; i < allScores.length; i++) {
+            var createLi = document.createElement("li");
+            createLi.textContent = allScores[1].initials + " " + allScores[1].score;
+            highScore.appendChild(createLi);
+
+        }
+    // get item
+    // parse into array 
+    // for loop or for each 
 
 // }
 
