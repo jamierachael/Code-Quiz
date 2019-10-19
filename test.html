@@ -87,7 +87,7 @@
             color: white;
         }
 
-        input {
+        #initials {
             margin-bottom: 20px;
             width: 50%;
         }
@@ -271,7 +271,7 @@
             if (questionIndex >= questions.length) {
                 // Proper spot to call this: 
                 allDone();
-                alert("end of quiz!");
+                createDiv.textContent = "End of quiz!" + " " + "You got  " + score + "/" + questions.length + " Correct!";
             } else {
                 render(questionIndex);
             }
@@ -312,13 +312,14 @@
             // Label
             var createLabel = document.createElement("label");
             createLabel.setAttribute("id", "createLabel");
-            createLabel.textContent = "Enter your initials"
+            createLabel.textContent = "Enter your initials ";
 
             questionsDiv.appendChild(createLabel);
 
             // input
             var createInput = document.createElement("input");
             createInput.setAttribute("type", "text");
+            createInput.setAttribute("id", "initials");
             createInput.textContent = "";
 
             questionsDiv.appendChild(createInput);
