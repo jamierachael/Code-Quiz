@@ -218,6 +218,8 @@
 
             questionsDiv.innerHTML = "";
             ulCreate.innerHTML = "";
+            // Try to clear the UL?
+
 
             for (var i = 0; i < questions.length; i++) {
 
@@ -283,6 +285,7 @@
             // to create the last page:
             questionsDiv.innerHTML = "";
             currentTime.innerHTML = "";
+            // ulCreate.innerHTML = "";
             // questionsDiv.style.display = "hidden";
 
             // Heading:
@@ -334,24 +337,48 @@
 
             // Test
             createSubmit.addEventListener("click", function () {
-                var initials = localStorage.setItem("initials", initials);
-                var noInitials = localStorage.getItem("noInitials");
+                var initials = createInput.value;
+                // var initials = localStorage.setItem("initials", initials);
+                // var noInitials = localStorage.getItem("noInitials");
                 // if the item did not exist in local storage
-                if (noInitials === null) {
-                    // createInput = createInput.textContent = "No value entered!";
+                if (initials === null) {
+                    // createInput.textContent = "No value entered!";
                     console.log("No value entered!");
                     // For testing, right now only "if" works
                     // window.location.replace("./testHighScores.html");
                 } else {
-                    var objectJSON = JSON.stringify(initials);
-                    localStorage.getItem("initials", initials);
-                    window.location.replace("./testHighScores.html");
+                    var finalScore = {
+                        initials: initials,
+                        score: timeRemaining
+                    }
+                    console.log(finalScore);
+                    var allScores = localStorage.getItem("allScores");
+                    if (allScores === null) {
+                        allScores = [];
+                    } else {
+                        allScores = JSON.parse(allScores);
+                    }
+                    allScores.push(finalScore);
+                    var newScore = JSON.stringify(allScores);
+                    localStorage.setItem("allScores", newScore);
+
+                    // window.location.replace("./testHighScores.html");
                 }
             });
 
         }
 
+          // var objectJSON = JSON.stringify(initials);
+                    // getting any scores that exist 
+                    // localStorage.getItem("initials", initials);
+                    // build object with initials and score 
+                    // want object in array 
+                    // add to array
+                    // set item
 
+// function highScores() {
+
+// }
 
         // Event listener on button or select 
         // Add answer as data attribute on question - then compare value of button or selct to see if correct answer
