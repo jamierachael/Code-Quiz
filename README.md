@@ -94,6 +94,7 @@ Homework-4 Code Quiz
     * These use W3C Code Validators for HTML and CSS
     * Please provide feedback whether this image syntax is correct
         * Format: ![Validator-HTML-Index](assets/images/Validator-HTML-Index)
+        * Format: ![Validator-HTML-Index](assets/images/Validator-HighScores-Index)
         * Format: ![Validator-CSS](assets/images/Validator-CSS)
         * Format: ![Validator-CSS](assets/images/Validator-JS)
 

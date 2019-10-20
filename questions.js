@@ -1,17 +1,5 @@
-// Pseudocode 
-// Create a timer attached to a button with a starting value of 0
-// Whnen timer is pressed start a reverse countdown
-// Create a 0 for countdown 
-
-// When countdown starts, start quiz
-// Append the question: choices
-// When user selects the right answer, textcontent "Correct!"
-// When user selects the right answer, textcontent "Wrong!"
-
-// Final score will keep track of how many the user got right 
-// Left over time will be deducted from final score 
-
-// Use this keyword: 
+// Jamie Morris Homework-4 Code Quiz 
+// Var with array and object for questions 
 var questions = [
     {
         title: "Commonly used data types DO NOT include:",
@@ -40,7 +28,7 @@ var questions = [
     },
 
 ];
-
+// Declared variables
 var score = 0;
 var questionIndex = 0;
 
@@ -80,12 +68,12 @@ timer.addEventListener("click", function () {
 
 // Renders questions and choices to page: 
 function render(questionIndex) {
-
+    // Clears existing data 
     questionsDiv.innerHTML = "";
     ulCreate.innerHTML = "";
-
+    // For loops to loop through all info in array
     for (var i = 0; i < questions.length; i++) {
-
+        // Appends question title only
         var userQuestion = questions[questionIndex].title;
         var userChoices = questions[questionIndex].choices;
         questionsDiv.textContent = userQuestion;
@@ -99,7 +87,7 @@ function render(questionIndex) {
         listItem.addEventListener("click", (compare));
     })
 }
-
+// Event to compare choices with answer
 function compare(event) {
     var element = event.target;
 
@@ -107,11 +95,11 @@ function compare(event) {
 
         var createDiv = document.createElement("div");
         createDiv.setAttribute("id", "createDiv");
-
+        // Correct condition 
         if (element.textContent == questions[questionIndex].answer) {
             score++;
-            // alert("Correct!");
             createDiv.textContent = "Correct! The answer is:  " + questions[questionIndex].answer;
+            // Correct condition 
         } else {
             // Will deduct -5 seconds off secondsLeft for wrong answers
             secondsLeft = secondsLeft - penalty;
@@ -119,11 +107,11 @@ function compare(event) {
         }
 
     }
-    // Question Index is not added 1 when on second question
+    // Question Index determines number question user is on
     questionIndex++;
 
     if (questionIndex >= questions.length) {
-        // Proper spot to call this: 
+        // All done will append last page with user stats
         allDone();
         createDiv.textContent = "End of quiz!" + " " + "You got  " + score + "/" + questions.length + " Correct!";
     } else {
@@ -132,7 +120,7 @@ function compare(event) {
     questionsDiv.appendChild(createDiv);
 
 }
-
+// All done will append last page
 function allDone() {
     questionsDiv.innerHTML = "";
     currentTime.innerHTML = "";
@@ -163,7 +151,7 @@ function allDone() {
     // Label
     var createLabel = document.createElement("label");
     createLabel.setAttribute("id", "createLabel");
-    createLabel.textContent = "Enter your initials ";
+    createLabel.textContent = "Enter your initials: ";
 
     questionsDiv.appendChild(createLabel);
 
@@ -183,7 +171,7 @@ function allDone() {
 
     questionsDiv.appendChild(createSubmit);
 
-    // Test
+    // Event listener to capture initials and local storage for initials and score
     createSubmit.addEventListener("click", function () {
         var initials = createInput.value;
 
@@ -206,7 +194,7 @@ function allDone() {
             allScores.push(finalScore);
             var newScore = JSON.stringify(allScores);
             localStorage.setItem("allScores", newScore);
-
+            // Travels to final page
             window.location.replace("./HighScores.html");
         }
     });
