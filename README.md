@@ -2,9 +2,9 @@
 Homework-4 Code Quiz
 ## Jamie Morris Homework-4 Code Quiz
 
-* ['Code-Quiz'](https://github.com/jamierachael/Code-Quiz)
-* ['Code-Quiz'](https://jamierachael.github.io/Code-Quiz/)
-* ['Code-Quiz'](https://drive.google.com/file/d/1Vwszd5-rVd5LQKwpRoxpXqu_1eiH3uDI/view)
+* ['Code-Quiz GitHub'](https://github.com/jamierachael/Code-Quiz)
+* ['Code-Quiz GitHub IO'](https://jamierachael.github.io/Code-Quiz/)
+* ['Code-Quiz Demo Video'](https://drive.google.com/file/d/1Vwszd5-rVd5LQKwpRoxpXqu_1eiH3uDI/view)
 
 
 
