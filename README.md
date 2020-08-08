@@ -1,11 +1,16 @@
 # Code-Quiz
-Homework-4 Code Quiz
-## Jamie Morris Homework-4 Code Quiz
+
+This project was designed as a homework assignment for UNH's coding bootcamp. 
+
+This is a quiz application using HTML, CSS, and Javascript. This application emphasizes the use of Javascript to provide quiz questions and collect user data to determine whether the answers to a question are correct, this then generates a score and appends a final page of results from the user data. 
+
+This project has been deployed to GitHub Pages. To get this project up and running, you can follow the deployment link. Or, download the sources files to use this as a template.
 
 * ['Code-Quiz GitHub'](https://github.com/jamierachael/Code-Quiz)
 * ['Code-Quiz GitHub IO'](https://jamierachael.github.io/Code-Quiz/)
 * ['Code-Quiz Demo Video'](https://drive.google.com/file/d/1Vwszd5-rVd5LQKwpRoxpXqu_1eiH3uDI/view)
 
+![Password-Generator Demo](assets/demo/gif.gif)
 
 
 ### Summary
