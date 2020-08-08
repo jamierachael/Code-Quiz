@@ -12,6 +12,14 @@ This project has been deployed to GitHub Pages. To get this project up and runni
 
 ![Password-Generator Demo](assets/demo/gif.gif)
 
+### Prerequisites
+
+To install this application, you will need a text editor. I recommend Visual Studio Code. 
+
+### Installing
+
+To install this code, download the zip file, or use GitHub's guidelines to clone the repository. 
+
 
 ### Summary
 * HTML and CSS and Javascript documents create a quiz with multiple choice questions with Javascript trivia
@@ -21,19 +29,32 @@ This project has been deployed to GitHub Pages. To get this project up and runni
 ### This project has the following features: 
 * A Start Quiz button 
     * This starts a timer for the user, each question averages 15 seconds each for a total time of 75 seconds + 1. 
+
+![](assets/Images/button.PNG)
+
 * An appended HTML page that features questions, and multiple choice answers
     * If questions are answered incorrectly, 5 seconds are deducted off remaining time
     * Answers are recording using an event listener, "click" and tracks correct answers
+
+![](assets/Images/question1.PNG)
+
+![](assets/Images/question2.PNG)
+
 * An appended HTML page that features: 
     * Final score which is calculated using time remaining
     * A Summary of how many questions answered correctly 
     * Input area to record initials
     * A Submit button
     * Submit buttom saves initials and score to local storage
+
+![](assets/Images/final.PNG)
+
 * A Highscores HTML
     * This a list summary of intials and final scores
     * Clear button resets the page and local storage
     * Go back button travels to the start of the quiz
+
+![](assets/Images/high.PNG)
 
 ### Psuedo code:  
 * Create a timer attached to a button with a starting value of 0
@@ -94,14 +115,14 @@ This project has been deployed to GitHub Pages. To get this project up and runni
         * Functions 
         * Local Storage set and get 
 
+## Authors
 
-### Code Validation 
-    * These use W3C Code Validators for HTML and CSS
-    * Please provide feedback whether this image syntax is correct
-        * Format: ![Validator-HTML-Index](assets/images/Validator-HTML-Index)
-        * Format: ![Validator-HTML-Index](assets/images/Validator-HighScores-Index)
-        * Format: ![Validator-CSS](assets/images/Validator-CSS)
-        * Format: ![Validator-CSS](assets/images/Validator-JS)
+* **Jamie Rachael Morris** - *Initial work* - [Git Hub Profile](https://github.com/jamierachael)
+* UNH Project Design
+
+## Acknowledgments
+
+* Hat tip to UNH for providing project parameters and code examples
 
 
 
