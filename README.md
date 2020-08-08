@@ -30,15 +30,15 @@ To install this code, download the zip file, or use GitHub's guidelines to clone
 * A Start Quiz button 
     * This starts a timer for the user, each question averages 15 seconds each for a total time of 75 seconds + 1. 
 
-![](assets/Images/demo.PNG)
+![](assets/images/button.PNG)
 
 * An appended HTML page that features questions, and multiple choice answers
     * If questions are answered incorrectly, 5 seconds are deducted off remaining time
     * Answers are recording using an event listener, "click" and tracks correct answers
 
-![](assets/Images/question1.PNG)
+![](assets/images/question1.PNG)
 
-![](assets/Images/question2.PNG)
+![](assets/images/question2.PNG)
 
 * An appended HTML page that features: 
     * Final score which is calculated using time remaining
@@ -47,14 +47,14 @@ To install this code, download the zip file, or use GitHub's guidelines to clone
     * A Submit button
     * Submit buttom saves initials and score to local storage
 
-![](assets/Images/final.PNG)
+![](assets/images/final.PNG)
 
 * A Highscores HTML
     * This a list summary of intials and final scores
     * Clear button resets the page and local storage
     * Go back button travels to the start of the quiz
 
-![](assets/Images/high.PNG)
+![](assets/images/high.PNG)
 
 ### Psuedo code:  
 * Create a timer attached to a button with a starting value of 0
