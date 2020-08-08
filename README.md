@@ -28,7 +28,8 @@ To install this code, download the zip file, or use GitHub's guidelines to clone
 
 ### This project has the following features: 
 * A Start Quiz button 
-    * This starts a timer for the user, each question averages 15 seconds each for a total time of 75 seconds + 1. 
+    * This starts a timer for the user
+    * Each question averages 15 seconds each for a total time of 75 seconds + 1. 
 
 ![](assets/images/button.PNG)
 
