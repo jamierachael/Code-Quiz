@@ -6,9 +6,9 @@ This is a quiz application using HTML, CSS, and Javascript. This application emp
 
 This project has been deployed to GitHub Pages. To get this project up and running, you can follow the deployment link. Or, download the sources files to use this as a template.
 
-* ['Code-Quiz GitHub'](https://github.com/jamierachael/Code-Quiz)
-* ['Code-Quiz GitHub IO'](https://jamierachael.github.io/Code-Quiz/)
-* ['Code-Quiz Demo Video'](https://drive.google.com/file/d/1Vwszd5-rVd5LQKwpRoxpXqu_1eiH3uDI/view)
+* [GitHub Repository](https://github.com/jamierachael/Code-Quiz)
+* [Deployed GitHub IO](https://jamierachael.github.io/Code-Quiz/)
+* [Full Demo Video](https://drive.google.com/file/d/1Vwszd5-rVd5LQKwpRoxpXqu_1eiH3uDI/view)
 
 ![Password-Generator Demo](assets/demo/gif.gif)
 
