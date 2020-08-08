@@ -30,7 +30,7 @@ To install this code, download the zip file, or use GitHub's guidelines to clone
 * A Start Quiz button 
     * This starts a timer for the user, each question averages 15 seconds each for a total time of 75 seconds + 1. 
 
-![](assets/Images/button)
+![](assets/Images/button.PNG)
 
 * An appended HTML page that features questions, and multiple choice answers
     * If questions are answered incorrectly, 5 seconds are deducted off remaining time
