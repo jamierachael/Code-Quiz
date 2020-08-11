@@ -10,7 +10,7 @@ This project has been deployed to GitHub Pages. To get this project up and runni
 * [Deployed GitHub IO](https://jamierachael.github.io/Code-Quiz/)
 * [Full Demo Video](https://drive.google.com/file/d/1Vwszd5-rVd5LQKwpRoxpXqu_1eiH3uDI/view)
 
-![Password-Generator Demo](assets/demo/gif.gif)
+![Code-Quiz Demo](assets/demo/gif.gif)
 
 ### Prerequisites
 
